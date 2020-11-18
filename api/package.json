@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "babel-node index.js",
-        "start": "nodemon --exec  index.js"
+        "start": "babel-node index.js"
     },
     "author": "Enecworld",
     "license": "ISC",

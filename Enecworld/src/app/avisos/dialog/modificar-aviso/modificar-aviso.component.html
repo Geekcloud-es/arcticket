@@ -1,0 +1,63 @@
+<div class="row primary">
+    <div class="col 12">
+        <h3>Modificando Aviso</h3>
+    </div>
+    <div class="col-12">
+        <div class="col-6">
+            <mat-list>
+                <mat-list-item>
+                    Aviso n: {{description.aviso.aviso}}
+                </mat-list-item>
+                <mat-list-item>
+                    Cliente: {{description.aviso.f_apertura}}
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <div class="col-12 ">
+
+
+        <mat-form-field class="example-full-width col-12">
+            <textarea matInput placeholder="Descripcion" value="{{description.descripcion}}" [(ngModel)]="description.descripcion"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width col-12">
+            <textarea matInput placeholder="Observaciones" value="{{description.observaciones}}" [(ngModel)]="description.observaciones"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="col-6">
+            <input matInput [matDatepicker]="pickerApertura" placeholder="Fecha de Apertura" [formControl]="dateA" [(ngModel)]="description.f_apertura">
+            <mat-datepicker-toggle matSuffix [for]="pickerApertura"></mat-datepicker-toggle>
+            <mat-datepicker #pickerApertura></mat-datepicker>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="col-6">
+            <mat-chip-list #chipList aria-label="techie selection">
+                <mat-chip *ngFor="let techie of techies" [selectable]="selectable" [removable]="removable" (removed)="remove(techie)">
+                    {{techie}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="New techie..." #techieInput [matAutocomplete]="autoTechie" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur">
+            </mat-chip-list>
+            <mat-autocomplete id="techieFilter" #autoTechie="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let techie of filteredtechies | async" value="{{techie.codigo}}">
+                    {{techie.nombre}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="col-6">
+            <mat-select placeholder="Select">
+                <mat-option *ngFor="let i of tiposAviso" value="{{i}}">{{i}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12 d-flex justify-content-end align-items-center">
+        <button mat-raised-button (click)="modify()">modificar</button>
+    </div>
+</div>

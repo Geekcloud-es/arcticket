@@ -1,0 +1,21 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let visita of visitas.slice().reverse() ">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{monthsAgo(visita.fecha)}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Martin Sanchez
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-lg-3" *ngFor="let parametro of visita.parametros">
+                <mat-checkbox [checked]="parametro.y">{{parametro.x}}</mat-checkbox>
+
+            </div>
+            <div class="col-12">
+                <i>{{visita.observaciones}}</i>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

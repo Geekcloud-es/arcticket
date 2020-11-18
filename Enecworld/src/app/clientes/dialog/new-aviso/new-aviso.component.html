@@ -1,0 +1,79 @@
+<h2>
+    Crear nuevo aviso
+</h2>
+<mat-dialog-content>
+
+
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+
+            <ng-template matStepLabel>Tipo de aviso</ng-template>
+            <mat-form-field>
+                <mat-select placeholder="Select" [(ngModel)]="formulario.tp">
+                    <mat-option *ngFor="let i of tiposAviso" value="{{i}}">{{i}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" class="row">
+
+            <ng-template matStepLabel>Detalles del Aviso</ng-template>
+
+            <mat-form-field class="col-6">
+
+                <input placeholder="Pick one" aria-label="Number" matInput [matAutocomplete]="auto" [(ngModel)]="formulario.cliente">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" value="{{option.codigo}}">
+                        {{option.nombre}}
+                    </mat-option>
+                </mat-autocomplete>
+
+            </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-chip-list #chipList aria-label="techie selection">
+                    <mat-chip *ngFor="let techie of techies" [selectable]="selectable" [removable]="removable" (removed)="remove(techie)">
+                        {{techie}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="New techie..." #techieInput [matAutocomplete]="autoTechie" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur">
+                </mat-chip-list>
+                <mat-autocomplete id="techieFilter" #autoTechie="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let techie of filteredtechies | async" value="{{techie.codigo}}">
+                        {{techie.nombre}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+
+
+
+            <mat-form-field class="col-6">
+                <mat-label>Descripcion</mat-label>
+                <input matInput placeholder="Input" [(ngModel)]="formulario.descripcion">
+            </mat-form-field>
+            <mat-form-field class="col-6">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="formulario.f_apertura">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-label>Observaciones</mat-label>
+                <input matInput placeholder="Input" [(ngModel)]="formulario.observaciones">
+            </mat-form-field>
+
+            <div class="col-6">
+                <mat-label>Prioridad</mat-label>
+                <div>
+                    <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="10" [(ngModel)]="formulario.prioridad"></mat-slider>
+                </div>
+
+            </div>
+            <button mat-raised-button color="accent" (click)="send()">Accent</button>
+        </mat-step>
+
+    </mat-vertical-stepper>
+
+</mat-dialog-content>

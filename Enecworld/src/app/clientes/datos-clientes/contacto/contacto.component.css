@@ -1,0 +1,14 @@
+.margenes {
+    padding: 0.2rem
+}
+
+* {
+    list-style: none;
+}
+
+.non-margin {
+    display: flex;
+    justify-content: start;
+    padding: 0px;
+    margin-right: 0px !important
+}

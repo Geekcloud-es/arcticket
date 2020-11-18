@@ -1,0 +1,20 @@
+<div class="margenes">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-12">
+                    {{contacto.nombre}} <small> {{contacto.cargo}}</small>
+                </div>
+                <div class="col-8 non-margin">
+                    <ul>
+                        <li *ngFor="let item of contacto | keyvalue">
+                            <ng-container *ngIf="item.value != null && item.key !== 'nombre' && item.key !== 'cargo' && item.key !== '__typename'">
+                                {{item.key}} : {{item.value}}
+                            </ng-container>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

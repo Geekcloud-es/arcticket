@@ -1,0 +1,22 @@
+.lista {
+    padding: 1rem;
+}
+
+.size {
+    font-size: 90% !important;
+    margin-right: 2%
+}
+
+.lista mat-list mat-list-item {
+    padding-top: 1rem
+}
+
+.estadistica {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center
+}
+
+.estadistica h6 {
+    height: 1rem;
+}

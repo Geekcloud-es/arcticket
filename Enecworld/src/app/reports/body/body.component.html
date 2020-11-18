@@ -1,0 +1,89 @@
+<button (click)="toPdf()">FGKLO</button>
+
+<body class="container-fluid " #pdf>
+    <div class="row justify-content-between">
+        <img src="../../../assets/img/topArrow.png" alt="" class="topArrow col-4 ">
+        <div class="col-8 row justify-content-end datos ">
+            <div class="col-10 d-flex flex-column align-items-end encabezado row">
+                <h1>Informe Incidencia</h1>
+                <p> {{description.aviso.aviso}} </p>
+
+                <table style="margin-bottom: 0px">
+                    <tr class="d-flex justify-content-center">
+                        Datos de Cliente
+                    </tr>
+                    <tr class="odd table">
+                        <td>Nombre: {{description.aviso.cliente[1]}}</td>
+                        <td>Direccion: Somewhere in the universe</td>
+                    </tr>
+                    <tr class="table">
+                        <td>Telefono: {{cliente.telefono}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-12">
+                <table>
+                    <tr class="d-flex justify-content-center">
+                        Datos del informe
+                    </tr>
+                    <tr class="odd table">
+                        <td>Contrato: {{description.aviso.contrato | contratosPipe}}</td>
+                        <td>Tipo de Trabajo: </td>
+                        <td>Total Horas: {{totalHoras}}</td>
+                    </tr>
+                    <tr class="table">
+
+                        <td>Distancia: {{desplazamiento.km}} km </td>
+                        <td>Dietas: {{desplazamiento.dietas}}</td>
+                        <td>Total horas especiales: 0</td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11 descripcion">
+            <p>Descripcion: <i>{{description.aviso.descripcion}}</i></p>
+        </div>
+        <div class="col-10">
+            <table>
+                <ng-container *ngFor="let i of description.parte; let in = index" [ngSwitch]="in%2 == 0">
+
+                    <tr class="odd table" *ngSwitchCase="true">
+
+                        <td>{{i.parte}}</td>
+                        <td>{{i.descripcion}}</td>
+                        <td>{{i.horas}}</td>
+                        <td>
+                            <p *ngFor="let j of i.tecnico">{{j | TecnicosPipe | async}}</p>
+                        </td>
+                        <td>{{i.f_apertura | date}} - {{i.f_cierre | date}}</td>
+                    </tr>
+
+                    <tr class="table" *ngSwitchCase="false">
+                        <td>{{i.parte}}</td>
+                        <td>{{i.descripcion}}</td>
+                        <td>{{i.horas}}</td>
+                        <td>
+                            <p *ngFor="let j of i.tecnico">{{j | TecnicosPipe | async}}</p>
+                        </td>
+                        <td>{{i.f_apertura | date}} - {{i.f_cierre | date}}</td>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-center ">
+        <div class="col-10 odd ">
+            Observaciones: {{description.observaciones}}
+        </div>
+    </div>
+    <div class="row justify-content-between ">
+        <div class="d-flex justify-content-center align-items-end col-6 " style="padding-left:8rem">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque asperiores possimus quam odit, repellendus tempora ipsa autem eveniet, ab odio dicta fuga animi praesentium. Est ipsa nobis impedit saepe at?</p>
+        </div>
+        <img src="../../../assets/img/arrow.png " alt=" " class="bottomArrow col-5 ">
+    </div>
+</body>

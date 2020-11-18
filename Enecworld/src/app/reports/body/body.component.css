@@ -1,0 +1,52 @@
+body {
+    width: 1080px;
+}
+
+.topArrow {
+    position: relative;
+    top: 0px;
+    height: 20rem;
+    left: -15px;
+}
+
+.bottomArrow {
+    transform: rotate(180deg);
+    position: relative;
+    bottom: -8rem;
+    right: -5rem
+}
+
+.encabezado {
+    padding: 2rem
+}
+
+.encabezado p {
+    font-size: 42px;
+    color: #eb4d4b;
+}
+
+ul {
+    list-style: none;
+    font-size: 18px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 5rem
+}
+
+td {
+    max-width: 25rem;
+}
+
+.odd {
+    background-color: rgba(236, 240, 241, 0.8)
+}
+
+.descripcion {
+    margin-bottom: 3rem
+}
+
+.datos {
+    padding-right: 2rem
+}

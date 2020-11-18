@@ -1,0 +1,17 @@
+.marg {
+    padding: 0.5rem
+}
+
+.WoPadd {
+    padding: 0px !important;
+}
+
+.WoPadd mat-card-title {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+mat-tab {
+    height: 9.45rem;
+}

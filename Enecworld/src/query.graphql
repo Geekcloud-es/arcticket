@@ -1,0 +1,27 @@
+
+query{
+	allFullAvisos{
+    aviso{
+      aviso,
+      cliente,
+      descripcion,
+      prioridad,
+      desplazamiento,
+      tp
+    },
+    parte{
+      aviso,
+      parte,
+      descripcion,
+      reparacion,
+      prestamo{
+        componente,
+        cantidad
+      }
+      componentes{
+        componente,
+        cantidad
+      }
+    }
+  }
+}

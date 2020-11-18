@@ -1,0 +1,46 @@
+<div class="container-fluid primary">
+    <div class="row">
+        <div class="col-12 justify-content-center">
+            <h5>Estado del Contrato</h5>
+            <div class="d-flex row col-12 justify-content-center">
+                <div class="col-2 d-flex justify-content-center">
+                    <p>{{getDateProgress(mantenimiento.f_inicio)}}</p>
+                </div>
+                <div class="col-8 d-flex justify-content-center align-items-center">
+                    <mat-progress-bar mode="determinate" value="{{progreso}}"></mat-progress-bar>
+                </div>
+                <div class="col-2 d-flex justify-content-center ">
+                    <p>{{getDateProgress(mantenimiento.f_fin)}}</p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row d-flex">
+        <h5 class="col-12">Avisos</h5>
+
+        <mat-list class="col-4 d-flex flex-column">
+            <mat-list-item>Avisos Totales: {{avisos.totales}}</mat-list-item>
+            <mat-list-item>Avisos Abiertos: {{avisos.abiertos}}</mat-list-item>
+            <mat-list-item>Average Avisos: {{avisos.avg}}</mat-list-item>
+        </mat-list>
+        <div class="col-8  sec">
+            <app-avisos-panel [arrAvisos]="arrAvisos"></app-avisos-panel>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex justify-content-start align-items-center">
+                <h5>Ultimas Revisiones</h5> <button mat-mini-fab class="btnAdd" (click)="addVisitas()"><mat-icon>add</mat-icon></button>
+            </div>
+            <app-visitas [visitas]="visitas"></app-visitas>
+        </div>
+        <div class="col-6">
+            <h5>Inventario</h5>
+            <app-inventario class="col-12" [dataSource]="inventario"></app-inventario>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer class="col-4" #drawer>
+        <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button mat-stroked-button color="primary" (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="container-fluid">
+            <router-outlet class='row'>
+
+
+            </router-outlet>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

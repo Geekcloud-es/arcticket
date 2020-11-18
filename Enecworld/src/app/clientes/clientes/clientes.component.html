@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-4 col-xs-12">
+        <mat-card>
+            <mat-card-title>
+                Lista de Clientes
+            </mat-card-title>
+            <mat-card-content>
+                <mat-divider></mat-divider>
+                <div class="container-fluid sec">
+                    <div class="row justify-content-center">
+                        <mat-form-field class="col-8">
+                            <input matInput placeholder="Busqueda" [(ngModel)]="busqueda">
+                        </mat-form-field>
+                        <div class="col-1 d-flex justify-content-center align-content-center">
+                            <button mat-icon-button color="primary" (click)="search()">
+                              <mat-icon>search</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <mat-toolbar matRipple class="opcion row" *ngFor="let i of resultado" (click)="assign(i)">
+                    <div class="justify-content-between size d-flex col-12">
+                        <p style="font-size: 18px !important">{{i.nombre}}</p>
+                        <p>Mantenimiento, Bono de Horas</p>
+                    </div>
+                </mat-toolbar>
+
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-8 col-xs-12 contrato">
+
+        <ng-container *ngIf="clienteSeleccionado != undefined">
+            <app-contratos [clienteSeleccionado]="clienteSeleccionado"></app-contratos>
+        </ng-container>
+
+
+
+    </div>
+</div>

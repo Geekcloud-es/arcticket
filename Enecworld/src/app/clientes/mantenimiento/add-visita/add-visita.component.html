@@ -1,0 +1,24 @@
+<div class="row">
+
+    <div class="col-12 d-flex justify-content-center align-content-center">
+        <h4>Agregar Una nueva Revision</h4>
+    </div>
+    <form [formGroup]="form" class="col-12 row">
+        <div formArrayName="parametros" class="col-xs-6 col-md-4 col-lg-3" *ngFor="let parametro of contrato.parametro.reverse(); let i = index">
+            <mat-checkbox [formControlName]="i">{{parametro}}</mat-checkbox>
+        </div>
+    </form>
+    <div [formGroup]="formText">
+        <mat-form-field class="col-6">
+            <textarea matInput placeholder="Observaciones" formControlName="observaciones"></textarea>
+        </mat-form-field>
+        <mat-form-field class="col-6">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="col-12 d-flex justify-content-end btnSend">
+        <button mat-raised-button color="primary" (click)="send()"><mat-icon>check</mat-icon>Listo</button>
+    </div>
+</div>

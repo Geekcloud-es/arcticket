@@ -1,0 +1,16 @@
+<div class="row contenedor">
+    <div class="col-12 d-flex justify-content-center">
+        <h2>¿Desea Cerrar el Aviso?</h2>
+    </div>
+    <div class=" col-12 d-flex justify-content-center  align-items-center">
+        <mat-form-field class="col-12">
+            <input matInput [matDatepicker]="picker" placeholder="Fecha de Cierre" [(ngModel)]="fecha_cierre">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="d-flex justify-content-end  align-items-center col-12">
+        <button mat-raised-button color="primary" (click)="cerrar()">Cerrar
+      </button>
+    </div>
+</div>

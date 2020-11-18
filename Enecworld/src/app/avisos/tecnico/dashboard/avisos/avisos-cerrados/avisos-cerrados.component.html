@@ -1,0 +1,12 @@
+<div id="primary d-flex justify-content-center">
+    <div class="front">
+        <h4>{{ total }} <small>{{crecicmiento}}%</small></h4>
+    </div>
+    <div class="can">
+        <canvas baseChart width="100vw" height="15rem" left="-1rem" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="false" [chartType]="lineChartType"> 
+
+    </canvas>
+    </div>
+
+
+</div>

@@ -1,0 +1,133 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let i of avisos  " hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{i.aviso.cliente[1]}}
+                <!--Nombre Cliente-->
+            </mat-panel-title>
+            <mat-panel-description>
+                {{i.aviso.descripcion.substring(0,30)}}
+                <!--Descripcion Aviso-->
+                <mat-chip-list>
+                    <mat-chip color="primary">{{i.parte.length}}
+                        <!-- Cantidad de Parte-->
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end align-items-center ">
+                <button mat-icon-button (click)="modificar(i.aviso)">
+          <mat-icon class="opciones">edit</mat-icon>
+        </button>
+                <button mat-icon-button>
+          <mat-icon class="opciones">print</mat-icon>
+        </button>
+            </div>
+            <div class="col-6">
+                <mat-list>
+                    <mat-list-item>
+                        Codigo de Aviso: {{i.aviso.aviso}}
+                    </mat-list-item>
+                    <mat-list-item>
+                        Estado: {{i.aviso.estado}}
+                    </mat-list-item>
+                    <mat-list-item>
+                        Fecha de apertura:
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-6">
+                <mat-list>
+                    <mat-list-item>
+                        Tipo de Incidencia: {{i.aviso.tp}}
+                    </mat-list-item>
+                    <mat-list-item>
+                        Descripcion : {{i.aviso.descripcion}}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <mat-list class="col-12">
+                    <mat-accordion>
+                        <mat-toolbar *ngIf="i.aviso.estado == 'A' " class="d-flex justify-content-center flex-column align-items-center">
+                            <button mat-icon-button (click)="newParte(i.aviso.aviso)" class="add_parte">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+
+                        </mat-toolbar>
+                        <mat-expansion-panel *ngFor="let j of i.parte">
+
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+
+                                    {{j.parte}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    {{j.tecnico[0]}}
+                                </mat-panel-description>
+
+                            </mat-expansion-panel-header>
+                            <div>
+                                <div class="row">
+
+                                    <div class="col-12 d-flex justify-content-between fullw">
+                                      <p>fecha apertura: {{getDateH(j.f_apertura)}}</p>
+
+                                       <p>fecha cierre: {{getDateH(j.f_cierre)}}</p>
+                                    </div>
+
+                                    <mat-list class="col-6">
+
+                                        <mat-list-item>
+                                            Horas: {{j.horas}}
+                                        </mat-list-item>
+
+                                        <mat-list-item>
+                                            Reparacion: {{j.descripcion}}
+                                        </mat-list-item>
+
+
+
+                                    </mat-list>
+
+                                    <div class="col-6 d-flex  flex-row justify-content-center">
+                                        <mat-list>
+                                            <mat-list-item>
+
+                                                <p>Tecnicos:
+                                                    <mat-chip>
+                                                        <mat-chip *ngFor="let y of j.tecnico">{{y}}
+                                                        </mat-chip>
+                                                    </mat-chip>
+                                                </p>
+
+
+                                            </mat-list-item>
+                                        </mat-list>
+
+
+                                    </div>
+
+                                    <div class="flex-row-reverse d-flow micro-container col-12" *ngIf="j.estado == 'A'">
+                                        <button class="r-position" mat-raised-button color="primary" (click)="closeParte(j.parte)" id="{{j.parte}}">Cerrar Parte</button></div>
+
+
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+
+                </mat-list>
+
+            </div>
+
+        </div>
+        <div class="flex-row-reverse d-flow micro-container col-12"> <button class="r-position" mat-raised-button color="primary" (click)="closeAviso(i.aviso.aviso)" id="{{i.aviso.aviso}}">Cerrar</button></div>
+
+    </mat-expansion-panel>
+</mat-accordion>

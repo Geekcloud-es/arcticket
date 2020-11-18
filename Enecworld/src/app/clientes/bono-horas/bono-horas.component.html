@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+            <h6>Horas Restantes</h6>
+            <mat-progress-bar mode="determinate" [value]="progreso"></mat-progress-bar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-7 ">
+            <div class="lista d-flex justify-content-center row">
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h6>Ultimos Bonos </h6> <button mat-mini-fab color="primary" (click)="addBono()">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+
+                <mat-list class="col-12" *ngIf="bonos != undefined">
+                    <ng-container *ngFor="let i of bonos.record.slice().reverse() async">
+                        <mat-list-item class="row">
+                            <div class="col-12 d-flex justify-content-between">
+                                <p class="size">{{i.bono.nombre}} </p>
+                                <p class="size">{{i.bono.cantidad}}</p>
+                                <p class="size">{{getDate(i.fecha)}}</p>
+
+                            </div>
+
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                    </ng-container>
+
+
+
+                </mat-list>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-5 estadistica">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h6>Ultimos Bonos</h6>
+                </div>
+
+                <div class="col-6 size d-flex flex-column ">
+                    <p>Horas disponible</p>
+                    <h4>{{bonos.horas_m}}</h4>
+                </div>
+                <div class="col-4 size d-flex flex-column">
+                    <p>Horas/ Mes</p>
+                    <h4>62</h4>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+            <h6>Avisos</h6>
+        </div>
+        <div class="col-8  sec">
+            <app-avisos-panel [arrAvisos]="arrAvisos"></app-avisos-panel>
+        </div>
+    </div>
+</div>

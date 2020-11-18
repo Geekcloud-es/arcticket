@@ -1,0 +1,7 @@
+#primary {
+    max-height: 4.5rem
+}
+canvas{
+    height: 5rem !important;
+    width: 10rem !important;
+}

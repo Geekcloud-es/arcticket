@@ -1,0 +1,26 @@
+<mat-card class="contrato">
+    <mat-card-title>
+        {{clienteSeleccionado.nombre}}
+    </mat-card-title>
+    <mat-tab-group>
+        <ng-container *ngFor="let i of contratosList">
+            <ng-container *ngIf="i.tipo === 'mantenimiento'">
+                <mat-tab label="Mantenimiento">
+
+                    <app-mantenimiento [codigo]="i.contrato" class="container-fluid d-flex"></app-mantenimiento>
+                </mat-tab>
+            </ng-container>
+            <ng-container *ngIf="i.tipo === 'bhoras'">
+                <mat-tab label="Bono de Horas">
+                    <app-bono-horas [bhoras]="i.contrato"></app-bono-horas>
+                </mat-tab>
+            </ng-container>
+        </ng-container>
+
+
+        <mat-tab label="Eventual"> </mat-tab>
+        <mat-tab label="Datos">
+            <app-datos-clientes [codigoCliente]="clienteSeleccionado.codigo"></app-datos-clientes>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

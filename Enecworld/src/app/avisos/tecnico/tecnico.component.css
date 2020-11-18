@@ -1,0 +1,65 @@
+mat-panel-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+mat-panel-description {
+    flex-basis: 0;
+}
+
+.micro-container {
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+
+.micro-container1 {
+    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.micro-container2 {
+    padding: 1rem;
+    padding-left: 0rem;
+    padding-right: 2rem;
+}
+
+.marg {
+    padding: 0.5rem
+}
+
+.seleccion {
+    padding-top: 16px;
+}
+
+.add {
+    position: fixed;
+    right: 3rem;
+    bottom: 2rem
+}
+
+.r-position {
+    position: absolute;
+    right: 0px;
+}
+
+.fullw {
+    width: 100%
+}
+
+.add_parte {
+    min-width: 3rem;
+    min-height: 3rem;
+    color: rgb(115, 115, 115);
+    display: flex;
+    justify-content: start
+}
+
+.add_parte mat-icon {
+    font-size: 3rem
+}
+
+.opciones {
+    font-size: 1.2rem
+}

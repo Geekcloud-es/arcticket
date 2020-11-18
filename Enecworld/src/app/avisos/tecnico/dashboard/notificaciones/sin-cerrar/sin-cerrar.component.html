@@ -1,0 +1,22 @@
+<div class="row d-flex justify-content-center no-marg">
+    <mat-list class="col-12">
+
+        <mat-list-item class="row" *ngFor="let i of avisos">
+            <div class="col-3 d-flex justify-content-center">
+                <h5>{{ i.cliente.substr(0,2).toUpperCase() }}</h5>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <p>{{i.descripcion.substr(0,50)}}</p>
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <p>{{i.aviso}}</p>
+            </div>
+
+            <mat-divider class="col-12">
+
+            </mat-divider>
+        </mat-list-item>
+
+    </mat-list>
+    <h5 *ngIf="avisos.length == 0">No Hay Avisos en estado Critico</h5>
+</div>

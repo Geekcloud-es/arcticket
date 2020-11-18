@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-12 micro-container">
+        <app-dashboard>
+
+        </app-dashboard>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 micro-container1">
+        <mat-card>
+            <mat-card-title>
+                Avisos
+            </mat-card-title>
+            <mat-card-content>
+                <div class="row">
+
+                    <form class="example-form col-8">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Clientes" aria-label="Number" matInput name="cliente" [matAutocomplete]="auto" [(ngModel)]="advSearch.search.cliente">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.codigo">
+                                    {{option.nombre}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
+
+                    <mat-form-field class="col-2">
+                        <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="advSearch.search.fechaA">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-2">
+                        <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="advSearch.search.fechaC">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-3">
+                        <mat-label>Estado</mat-label>
+                        <mat-select [(ngModel)]="advSearch.search.estado">
+                            <mat-option>None</mat-option>
+                            <mat-option value="A">Abierto</mat-option>
+                            <mat-option value="C">Cerrado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width col-3">
+                        <input matInput placeholder="Numero de aviso" [(ngModel)]="advSearch.search.aviso">
+                    </mat-form-field>
+                </div>
+
+                <mat-divider></mat-divider>
+                <div class="row">
+                    <mat-form-field class="example-full-width col-8">
+                        <input matInput placeholder="Busqueda ..." [(ngModel)]="advSearch.search.specwords">
+                    </mat-form-field>
+
+
+
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <button mat-raised-button color="primary" (click)="search()">Buscar</button>
+                    </div>
+
+                </div>
+                <mat-divider></mat-divider>
+                <div class="seleccion">
+                    <app-avisos-panel [arrAvisos]="advSearch.response.arrAvisos"></app-avisos-panel>
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 micro-container2">
+        <app-stadistics></app-stadistics>
+
+    </div>
+</div>
+
+
+
+<button class="add" mat-fab color="primary" (click)="openDialog()">
+  <mat-icon>note_add</mat-icon>
+</button>

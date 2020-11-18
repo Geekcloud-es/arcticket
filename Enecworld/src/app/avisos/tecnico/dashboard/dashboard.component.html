@@ -1,0 +1,70 @@
+<div class="row dash">
+    <div class="col-6 row">
+
+        <div class="col-6 marg">
+            <mat-card>
+                <mat-card-title>
+                    Avisos Abiertos
+                </mat-card-title>
+                <mat-card-content class="justify-content-between align-item-center d-flex">
+                    <h3>{{dashboard.avisos.abiertos}}</h3>
+                    <app-avisos-abiertos></app-avisos-abiertos>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-6 marg">
+            <mat-card class="WoPadd">
+                <mat-card-title>
+                    Avisos Cerrados
+                </mat-card-title>
+                <app-avisos-cerrados></app-avisos-cerrados>
+                <mat-card-content class="justify-content-center align-item-center d-flex">
+
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-6 marg">
+            <mat-card>
+                <mat-card-title>
+                    Partes Abiertos
+                </mat-card-title>
+                <mat-card-content class="justify-content-center align-item-center d-flex">
+                    <h3>{{dashboard.avisos.abiertos}}</h3>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-6 marg">
+            <mat-card>
+                <mat-card-title>
+                    Partes Cerrados
+                </mat-card-title>
+                <mat-card-content class="justify-content-center align-item-center d-flex">
+                    <h3>{{dashboard.avisos.cerrados}}</h3>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+    <div class="col-6 marg">
+        <mat-card>
+            <mat-card-title class="d-flex justify-content-center">
+                Notificaciones
+            </mat-card-title>
+            <mat-card-content>
+                <mat-tab-group>
+                    <mat-tab label="Sin Cerrar">
+                        <app-sin-cerrar></app-sin-cerrar>
+                    </mat-tab>
+                    <mat-tab label="Por Atender">
+                        <app-por-atender></app-por-atender>
+                    </mat-tab>
+
+                </mat-tab-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

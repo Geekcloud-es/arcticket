@@ -1,0 +1,31 @@
+.identificacion {
+    height: 12rem;
+    background-image: url('../../../assets/img/galaxy.jpg');
+    background-size: contain;
+    margin: 0px;
+}
+
+.nombre {
+    height: 40%;
+    z-index: 5;
+    color: aliceblue;
+}
+
+.primary {
+    width: 100%;
+    margin: 0px;
+}
+
+.bg {
+    background-color: #fafcff;
+    height: calc(100%-12rem);
+}
+
+.img {
+    /*background-image: url('../../../assets/img/avatar.png');*/
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: bisque;
+    margin-right: 1rem;
+}

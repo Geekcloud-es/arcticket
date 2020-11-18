@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-flex justify-content-center col-12">
+            <h4>Agregar un Bono</h4>
+        </div>
+        <div class="col-12 row">
+            <mat-form-field class="col-10">
+                <mat-label>Bono</mat-label>
+                <mat-select [(ngModel)]="selected">
+                    <mat-option *ngFor="let i of lista" [value]="i">
+                        {{i.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="col-2 d-flex justify-content-center">
+                <button mat-mini-fab color="primary" (click)="add()">
+                  <mat-icon>send</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

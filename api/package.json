@@ -4,15 +4,17 @@
     "description": "api enecworld",
     "main": "index.js",
     "scripts": {
+        "build": "babel index.js -d dist",
         "test": "babel-node index.js",
-        "start": "babel-node index.js"
+        "start": "npm run build && node dist/index.js",
+        "rollup": "./node_modules/.bin/rollup -c"
     },
     "author": "Enecworld",
     "license": "ISC",
     "dependencies": {
+        "@babel/runtime": "^7.12.5",
         "apollo-server": "^2.19.0",
         "apollo-server-express": "^2.19.0",
-        "babel": "^6.23.0",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.3",
         "babel-preset-env": "^1.7.0",
@@ -22,7 +24,14 @@
         "mongoose": "^5.10.15",
         "mongose": "0.0.2-security",
         "morgan": "^1.10.0",
-        "nodemon": "^2.0.6"
+        "nodemon": "^2.0.6",
+        "rollup": "^2.33.3"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "@babel/cli": "^7.12.1",
+        "@babel/core": "^7.12.3",
+        "@babel/plugin-transform-runtime": "^7.12.1",
+        "@babel/preset-env": "^7.12.1",
+        "rollup-plugin-babel": "^4.4.0"
+    }
 }

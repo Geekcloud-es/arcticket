@@ -6,7 +6,7 @@
     "scripts": {
         "build": "babel index.js -d dist",
         "test": "babel-node index.js",
-        "start": "npm run build && node dist/index.js",
+        "start": "npx babel-node index.js",
         "rollup": "./node_modules/.bin/rollup -c"
     },
     "author": "Enecworld",

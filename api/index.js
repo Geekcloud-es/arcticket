@@ -8,6 +8,8 @@ import typeDefs from './schema';
 import resolvers from './resolvers';
 
 //Modelos
+import Avisos from './models/Avisos';
+import Partes from './models/Parte';
 import Clientes from './models/Clientes';
 import Usuarios from './models/Usuarios';
 import Contratos from './models/Contratos';
